@@ -1,0 +1,16 @@
+package project6;
+
+public class SimpleInterest {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		int princi_amnt = 1000;
+		double int_rate = .05;
+		int no_of_years = 5;
+		
+		
+		System.out.println(princi_amnt * int_rate * no_of_years / 100 );
+
+	}
+
+}
