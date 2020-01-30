@@ -1,0 +1,23 @@
+
+public class calctime {
+
+	public static void main(String[] args) {
+		double speed;
+		double time;
+		double distance;
+		double minutes;
+		speed =15;
+		distance =55;
+		time = distance / speed;
+		System.out.println(time);
+		minutes = time * 60;
+		System.out.println(minutes);
+		System.out.println("The trip was completed in " +time+" hours. Converted to minutes it is "+ minutes);
+		
+		
+		
+		
+
+	}
+
+}
