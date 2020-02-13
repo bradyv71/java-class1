@@ -1,0 +1,35 @@
+import java.util.Scanner;
+
+public class calctime {
+
+	public static void main(String[] args) {
+		double kilograms;
+		double earth = 2;
+		
+		
+		Scanner input = new Scanner(System.in);
+		
+		while(earth > 1) {
+			System.out.println("Please enter the weight of the car in Kilograms");
+			kilograms = input.nextDouble();
+			
+			System.out.println("Now please decide if you want the weight of newtons on earth or the moon");
+			String choice = input.next();
+			
+			if(choice.equals("earth")){
+				System.out.println("The weight on Earth is " + kilograms * 9.81 + " Newtons");
+			}
+			else if(choice.contentEquals("moon")) {
+				System.out.println("The weight on Moon is " + kilograms * 9.81 / 6 + " Newtons");
+			}
+			
+			
+		
+		
+           }
+		
+		
+	       }
+		
+		}
+
