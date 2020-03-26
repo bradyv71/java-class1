@@ -1,0 +1,166 @@
+package fgure;
+
+public class Figure {
+	
+	 double area;
+	 int volume;
+
+	public Figure(){
+
+	area=0;
+	volume=0;
+	}
+
+
+	public Figure(int _area,int _volume){
+	area=_area;
+	volume=_volume;
+	}
+
+	public Figure(Figure figure){
+	area=figure.area;
+	volume=figure.volume;
+	}
+	public void setArea(double _area){
+		area=_area;
+	}
+	public void setVolume(int _volume){
+		volume=_volume;
+	}
+	public double getArea(){
+	return area;
+	}
+	public int getVolume(){
+	return volume;
+	}
+	public String toString(){
+	return(area+""+volume);
+	}
+	public boolean equals(Figure figure){
+	return(area==figure.area && volume==figure.volume);
+	}
+
+}
+
+
+------------------------------------------------------------------------------------------------------------------------------
+
+package fgure;
+public class Circle extends Figure{
+	
+	private int diametar;
+	private static final double pi=3.14;
+
+	public Circle(){
+		super();
+		diametar=0;
+	}
+
+
+	public Circle(int _diametar,int _area,int _volume){
+		super(_area, _volume);
+		diametar=_diametar;
+	}
+
+	public Circle(Circle circle){
+		super(circle);
+		diametar=circle.diametar;
+	}
+
+	public void setDiametar(int _diametar){
+		diametar=_diametar;
+	}
+	
+	public double getAreaOfCircuit(){
+		setArea((4/3)*pi*(diametar*diametar*diametar));
+			return area;
+	}
+
+	public int getDiametar(){
+	return diametar;
+	}
+
+	public String toString(){
+	return(diametar+""+ super.toString());
+	}
+	public boolean equals(Circle circle){
+	return(diametar==circle.diametar && super.equals(circle));
+	}
+
+}
+
+-----------------------------------------------------------------------------------------------------------
+
+package fgure;
+
+public class Triangle extends Figure{
+	
+
+private int side;
+private int side2;
+private int side3;
+
+
+public Triangle(){
+	super();
+	side=0;
+	side2=0;
+	side3=0;
+}
+
+
+public Triangle(int _side,int _side2,int _side3,int _area,int _volume){
+	super(_area,_volume);
+	side=_side;
+	side2=_side2;
+	side3=_side3;
+}
+
+public Triangle(Triangle triangle){
+	super(triangle);
+	side=triangle.side;
+}
+
+public double getArea(){ 
+  setArea(side*side2*side3);
+ return area;
+}
+
+public void setSide(int _side){
+	side=_side;
+	
+}
+
+public int getSide(){
+return side;
+}
+
+public String toString(){
+return(side+""+super.toString());
+}
+public boolean equals(Triangle triangle){
+return(side==triangle.side && super.equals(triangle));
+}
+
+}
+
+------------------------------------------------------------------------------------------------------
+
+package fgure;
+
+public class Test {
+	public static void main(String [ ] args){
+		
+		Figure figure= new Figure(20,20);
+		Circle circle= new Circle(30,30,30);
+		Triangle triangle= new Triangle(5,6,7,40,40);
+		
+		System.out.println(figure.getArea());
+		System.out.println(circle.getArea());
+		System.out.println(triangle.getArea());
+		
+		System.out.println(triangle.getArea());
+		System.out.println(circle.getAreaOfCircuit());
+	}
+}
+
