@@ -1,0 +1,99 @@
+package bank;
+import java.util.Scanner;
+public class Bank {
+
+   private String id;
+   private int accNum;
+   private int initialBalance=1000;
+   
+   public Bank(){
+    id="Empty";
+    accNum=0;
+    initialBalance=0;
+   }
+   
+   public Bank(String id){
+    setId(id);
+    setAccNum(accNum);
+    initialBalance=0;
+   }
+   
+   public Bank(String id,int accNum){
+   setId(id);
+    initialBalance=0;
+   }
+   
+   
+   
+   public void setId(String id){
+       this.id=id;
+   }
+   
+   public void setAccNum(int accNum){
+       this.accNum=accNum;
+   }
+   
+   public String getId(){
+   return id;
+   }
+   
+   public int getAccNum(){
+   return accNum;
+   }
+   
+   public int getinItialBalance(){
+   return initialBalance;
+   }
+   
+   public String toString(){
+   return("ID is: "+id+" Account Number is: "+accNum+" and initial balance is: "+initialBalance);
+   }
+ 
+    }
+    
+    ---------------------------------------------------------------------------------------------------------------------------
+    
+    
+    
+    package bank;
+
+import java.util.Scanner;
+
+public class Test {
+	public static void main(String[] args){
+		String id;
+        int accNum;
+        int initialBalance=1000;
+        Bank bank=new Bank();
+   
+   Scanner keyboard= new Scanner(System.in);
+   
+   System.out.println("Enter id ");
+   id=keyboard.nextLine();
+   bank.setId(id);
+   
+   
+   
+   System.out.println("Enter acc ");
+   accNum=keyboard.nextInt();
+   bank.setAccNum(accNum);
+    
+   try{
+        
+       
+       if(id.equals("aaa111") && accNum==1111)
+           throw new Exception("newinput");
+       else if(id.equals("bbb111") && accNum==2222)
+           throw new Exception("No");
+       else 
+           throw new Exception("error");
+    
+   }
+   
+   catch(Exception e){
+       
+       String message=e.getMessage();
+   System.out.println(message);
+   }
+	}
+}
