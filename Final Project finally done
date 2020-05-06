@@ -1,0 +1,125 @@
+
+public abstract class Account
+{
+	protected int accountNumber;
+	protected double balance;
+	
+	public Account(int acctNum)
+	{
+		accountNumber = acctNum;
+		setBalance(0.0);
+	}
+	
+	public void setBalance(double b)
+	{
+		balance = b;
+	}
+	
+	public abstract int getAccountNumber();
+	public abstract double getBalance();
+	
+	
+	public abstract String getAccountInfo();
+}
+
+------------------------------------------------------------------------------------------------------------------------------------
+
+public class AccountArray
+{
+	public static void main(String[] args)
+	{
+		Account[] accountArray = new Account[10];
+		
+		accountArray[0] = new Checking(11);
+		accountArray[1] = new Checking(12);
+		accountArray[2] = new Checking(13);
+		accountArray[3] = new Checking(14);
+		accountArray[4] = new Checking(15);
+		accountArray[5] = new Savings(21, 1.0);
+		accountArray[6] = new Savings(22, 1.1);
+		accountArray[7] = new Savings(23, 1.2);
+		accountArray[8] = new Savings(24, 1.3);
+		accountArray[9] = new Savings(25, 1.4);
+		
+		for(int i = 0; i < accountArray.length; ++i)
+			System.out.println(accountArray[i].getAccountInfo() + "\n");
+	}
+}
+----------------------------------------------------------------------------------------------------------------------------------
+public class Checking extends Account
+{
+	public Checking(int accountNumber)
+	{
+		super(accountNumber);
+	}
+	
+	public int getAccountNumber()
+	{
+		return accountNumber;
+	}
+	
+	public double getBalance()
+	{
+		return balance;
+	}
+	
+	
+	public String getAccountInfo()
+	{
+		return("Checking Account Information\nAcct Num: " + getAccountNumber() + "\nBalance: " + getBalance());
+	}
+}
+---------------------------------------------------------------------------------------------------------------------------------
+
+
+
+public class Savings extends Account
+{
+	private double interestRate;
+	
+	public Savings(int accountNumber, double interest)
+	{
+		super(accountNumber);
+		setInterestRate(interest);
+	}
+	
+	public void setInterestRate(double interest)
+	{
+		interestRate = interest;
+	}
+	public double getInterestRate()
+	{
+		return interestRate;
+	}
+	
+	public int getAccountNumber()
+	{
+		return accountNumber;
+	}
+	
+	public double getBalance()
+	{
+		return balance;
+	}
+	
+
+	public String getAccountInfo()
+	{
+		return("Savings Account Information\nAccount Number: " + getAccountNumber() + "\nBalance: " + getBalance() + "\nInterest Rate: " + getInterestRate() + "%");
+	}
+}
+-------------------------------------------------------------------------------------------------------------------------------------
+
+import javax.swing.JOptionPane;
+
+public class TestAccounts
+{
+	public static void main(String[] args)
+	{
+		Checking aCheckingAccount = new Checking(1);
+		Savings aSavingsAccount = new Savings(2, 1.6);
+		
+		JOptionPane.showMessageDialog(null, aCheckingAccount.getAccountInfo());
+		JOptionPane.showMessageDialog(null, aSavingsAccount.getAccountInfo());
+	}
+}
